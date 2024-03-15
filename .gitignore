@@ -1,0 +1,43 @@
+# Ignore compiled files
+*.class
+*.o
+*.pyc
+
+# Ignore build output
+build/
+dist/
+
+# Ignore IDE and editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore dependencies
+.pnpm-store/
+node_modules/
+vendor/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+
+# Ignore sensitive information
+secrets.txt
+config.ini
+
+# Ignore operating system files
+.DS_Store
+Thumbs.db
+
+# Ignore graphql example
+bridge.graphql
+
+# Ignore environment files
+.env
+.env.*
+!.env.example
+
+# Ignore Tests results
+coverage/
+html
