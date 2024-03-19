@@ -9,6 +9,9 @@ export class StoreType {
   email: string;
 
   @Field()
+  id: string;
+
+  @Field()
   name: string;
 
   @Field()
