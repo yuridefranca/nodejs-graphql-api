@@ -1,10 +1,11 @@
 import { InMemoryBaseRepository } from '../../../../shared/infra/db/in-memory/in-memory-base.repository';
 import { Store } from '../../../domain/entities/store';
+import { ListStoreRepository } from '../../../domain/repositories';
 
 export class InMemoryStoreRepository extends InMemoryBaseRepository<
   Store,
   Partial<Pick<Store, 'name'>>
-> {
+> implements ListStoreRepository {
   protected _items: Store[] = [
     new Store({ address: '8043 Windler Roads', email: 'Brycen.Blanda53@example.net', name: 'Rutherford, Lubowitz and Hintz', phone: '973.220.4051 x3547' }),
     new Store({ address: '230 Marta Turnpike', email: 'Bryana42@example.org', name: 'Becker, Wyman and Romaguera', phone: '898.633.3900' }),
