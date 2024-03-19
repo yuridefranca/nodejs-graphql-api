@@ -7,9 +7,13 @@ import cors from 'cors';
 import express from 'express';
 
 import { ListProductResolver } from './product/presentation/list-product.resolver';
+import { ListStoreResolver } from './store/presentation';
 
 const schema = await buildSchema({
-  resolvers: [ListProductResolver],
+  resolvers: [
+    ListProductResolver,
+    ListStoreResolver,
+  ],
 });
 
 const app = express();
