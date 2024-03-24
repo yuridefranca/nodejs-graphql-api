@@ -8,6 +8,8 @@ import express from 'express';
 
 import { ListProductResolver } from './product/presentation/list-product.resolver';
 import { ListStoreResolver } from './store/presentation';
+import * as MongoDb from './shared/infra/db/mongo/mongo-connection';
+import { MongoStoreSeeder } from './store/infra/db/mongo/seeders/mongo-store.seeder';
 
 const schema = await buildSchema({
   resolvers: [
@@ -15,6 +17,11 @@ const schema = await buildSchema({
     ListStoreResolver,
   ],
 });
+
+await MongoDb.connect();
+console.info('🟢 The database is connected.');
+
+MongoStoreSeeder.run();
 
 const app = express();
 

@@ -3,6 +3,7 @@ import { randomUUID } from 'node:crypto';
 type StoreConstructor = {
   address: string;
   email: string;
+  id?: string;
   name: string;
   phone: string;
 };
@@ -14,10 +15,10 @@ export class Store {
   private _name: string;
   private _phone: string;
 
-  constructor({ address, email, name, phone }: StoreConstructor) {
+  constructor({ address, email, id, name, phone }: StoreConstructor) {
     this._address = address;
     this._email = email;
-    this._id = randomUUID();
+    this._id = id ?? randomUUID();
     this._name = name;
     this._phone = phone;
   }
