@@ -3,14 +3,14 @@ import HttpResponse from '../../shared/presentation/http-response';
 import { StoreType } from './store.type';
 import { ListStore } from '../domain/usecases';
 import { DbListStore } from '../application/usecases/db-list-store';
-import { InMemoryStoreRepository } from '../infra/db/in-memory/in-memory-store.repository';
+import { MongoStoreRepository } from '../infra/db/mongo/repositories/mongo-store.repository';
 
 @ObjectType()
 class ListStoreResponse extends HttpResponse(StoreType) { }
 
 @Resolver()
 export class ListStoreResolver {
-  private readonly listStore: ListStore = new DbListStore(new InMemoryStoreRepository());
+  private readonly listStore: ListStore = new DbListStore(new MongoStoreRepository());
 
   @Query(returns => ListStoreResponse)
   async stores(
